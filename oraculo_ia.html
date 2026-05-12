@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mytrak — Oráculo Simbólico</title>
+  <meta name="description" content="Consulta el oráculo simbólico de Antigraviti. Ingresa una palabra clave y recibe una interpretación basada en arquetipos universales.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="star-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-cinzel text-lg tracking-wider" style="color:#6A0DAD">
+        <span class="text-glow">✦</span> Mytrak
+      </a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links flex items-center gap-8" id="nav-links">
+        <a href="index.html" class="nav-link">El Umbral</a>
+        <a href="zodiaco.html" class="nav-link">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link active">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link">Biblioteca</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="relative z-10 pt-32 pb-8 px-6">
+    <div class="max-w-4xl mx-auto text-center animate-spectral">
+      <p class="font-body text-xs uppercase tracking-[0.25em] mb-4" style="color:#6A0DAD">
+        <i data-lucide="eye" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px"></i>
+        Lector Simbólico
+      </p>
+      <h1 class="font-cinzel text-4xl md:text-6xl mb-4 text-glow" style="color:#E0E0E0">El Oráculo</h1>
+      <p class="font-body text-sm max-w-2xl mx-auto" style="color:#808080;line-height:1.8">
+        Escribe una palabra que resuene contigo: una emoción, una búsqueda, una inquietud.
+        El oráculo responderá con una
+        <span class="semiotic-tip" style="color:#C0C0C0">lectura arquetipal
+          <span class="tip-content">Los arquetipos son patrones universales del inconsciente colectivo (Jung). No predicen: revelan estructuras de significado que la humanidad ha compartido a lo largo de milenios.</span>
+        </span>
+        basada en la sabiduría simbólica universal.
+      </p>
+    </div>
+  </section>
+
+  <!-- Oracle Image -->
+  <section class="relative z-10 pb-6 px-6">
+    <div class="max-w-xs mx-auto animate-spectral" style="animation-delay:0.3s">
+      <img src="img/oraculo.png" alt="Ojo del Oráculo" class="w-full rounded-2xl animate-pulse-glow" style="border:1px solid rgba(106,13,173,0.3)">
+    </div>
+  </section>
+
+  <!-- Suggestion Keywords — Expanded & Categorized -->
+  <section class="relative z-10 pb-6 px-6">
+    <div class="max-w-4xl mx-auto animate-spectral" style="animation-delay:0.5s">
+      <p class="font-body text-xs mb-5 text-center" style="color:#808080">Explora estos 30 caminos simbólicos o escribe tu propia palabra:</p>
+
+      <!-- Category: Emociones -->
+      <div class="mb-5">
+        <p class="font-cinzel text-xs uppercase tracking-[0.2em] mb-3 text-center" style="color:#6A0DAD">
+          <i data-lucide="heart" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px"></i>
+          Emociones
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="amor"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">amor</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="miedo"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">miedo</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="rabia"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">rabia</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="culpa"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">culpa</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="gratitud"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">gratitud</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="ansiedad"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">ansiedad</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="esperanza"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">esperanza</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="soledad"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">soledad</button>
+        </div>
+      </div>
+
+      <!-- Category: Búsquedas -->
+      <div class="mb-5">
+        <p class="font-cinzel text-xs uppercase tracking-[0.2em] mb-3 text-center" style="color:#6A0DAD">
+          <i data-lucide="compass" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px"></i>
+          Búsquedas Interiores
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="proposito"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">propósito</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="verdad"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">verdad</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="libertad"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">libertad</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="sabiduria"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">sabiduría</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="intuicion"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">intuición</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="conexion"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">conexión</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="confianza"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">confianza</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="silencio"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">silencio</button>
+        </div>
+      </div>
+
+      <!-- Category: Caminos -->
+      <div class="mb-5">
+        <p class="font-cinzel text-xs uppercase tracking-[0.2em] mb-3 text-center" style="color:#6A0DAD">
+          <i data-lucide="route" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px"></i>
+          Caminos de Transformación
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="cambio"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">cambio</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="sanacion"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">sanación</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="renacimiento"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">renacimiento</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="perdon"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">perdón</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="muerte"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">muerte</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="destino"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">destino</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="fuerza"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">fuerza</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="paciencia"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">paciencia</button>
+        </div>
+      </div>
+
+      <!-- Category: Temas Místicos -->
+      <div class="mb-2">
+        <p class="font-cinzel text-xs uppercase tracking-[0.2em] mb-3 text-center" style="color:#6A0DAD">
+          <i data-lucide="sparkles" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px"></i>
+          Misterios
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="ritual"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">ritual</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="sombra"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">sombra</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="suenos"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">sueños</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="abundancia"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">abundancia</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="incertidumbre"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">incertidumbre</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="futuro"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">futuro</button>
+          <button class="oracle-suggestion px-4 py-2 rounded-full text-xs font-body transition-all hover:scale-105" data-word="creatividad"
+            style="background:rgba(106,13,173,0.1);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">creatividad</button>
+        </div>
+      </div>
+
+      <!-- Counter -->
+      <p class="text-center font-body text-xs mt-4" style="color:#808080">
+        <span style="color:#6A0DAD">30</span> lecturas arquetipales disponibles · también puedes escribir tu propia palabra
+      </p>
+    </div>
+  </section>
+
+  <!-- Oracle Terminal -->
+  <section class="relative z-10 pb-24 px-6">
+    <div class="max-w-3xl mx-auto animate-spectral" style="animation-delay:0.7s">
+      <div class="oracle-terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot" style="background:#6A0DAD"></div>
+          <div class="terminal-dot" style="background:#4B0082"></div>
+          <div class="terminal-dot" style="background:#808080"></div>
+          <span class="font-body text-xs ml-3" style="color:#808080">oraculo_antigraviti.sys</span>
+        </div>
+
+        <div class="terminal-body" id="oracle-body">
+          <!-- Welcome message -->
+          <div class="message-oracle">
+            <div class="mb-2" style="font-size:1.5rem">🔮</div>
+            <h4 class="font-cinzel text-base mb-2" style="color:#6A0DAD">Bienvenido al Oráculo</h4>
+            <p class="text-sm font-body" style="color:#C0C0C0;line-height:1.7">
+              Este no es un sistema de predicción. Es un espejo simbólico que utiliza arquetipos universales para ayudarte a explorar tus propias inquietudes.
+            </p>
+            <p class="text-xs font-body mt-2" style="color:#808080">
+              Escribe una palabra y el oráculo te ofrecerá una reflexión. No hay respuestas correctas ni incorrectas: solo caminos de sentido.
+            </p>
+          </div>
+        </div>
+
+        <div class="oracle-input-container">
+          <i data-lucide="chevron-right" style="width:18px;height:18px;color:#6A0DAD"></i>
+          <input type="text" id="oracle-input" class="oracle-input" placeholder="Escribe tu palabra clave..." autocomplete="off">
+          <button id="oracle-btn" class="oracle-btn">
+            <i data-lucide="send" style="width:16px;height:16px"></i>
+            <span class="hidden sm:inline">Consultar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-mystic relative z-10 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-cinzel text-sm" style="color:#6A0DAD">✦ Mytrak</p>
+        <p class="font-body text-xs mt-1" style="color:#808080">Semiótica esotérica &amp; bienestar emocional</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html" class="nav-link text-xs">Umbral</a>
+        <a href="zodiaco.html" class="nav-link text-xs">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link text-xs">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link text-xs">Biblioteca</a>
+      </div>
+      <p class="font-body text-xs" style="color:#808080">© 2026 Mytrak</p>
+    </div>
+  </footer>
+
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/oraculo.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Mytrak </title>
+  <meta name="description" content="Mytrak: plataforma de exploración simbólica, astrología arquetipal y bienestar emocional a través de la semiótica esotérica.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Star Particles -->
+  <canvas id="star-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-cinzel text-lg tracking-wider" style="color:#6A0DAD">
+        <span class="text-glow">✦</span> Mytrak
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links flex items-center gap-8" id="nav-links">
+        <a href="index.html" class="nav-link active">El Umbral</a>
+        <a href="zodiaco.html" class="nav-link">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link">Biblioteca</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section relative" id="hero">
+    <div class="hero-bg-image"></div>
+    <div class="hero-gradient"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div class="animate-spectral" style="animation-delay:0.2s">
+        <p class="font-body text-xs uppercase tracking-[0.3em] mb-6" style="color:#6A0DAD">Semiótica · Astrología · Autoconocimiento</p>
+      </div>
+
+      <h1 class="font-cinzel text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-glow animate-spectral" style="color:#E0E0E0;animation-delay:0.4s">
+        Mytrak
+      </h1>
+
+      <div class="animate-spectral" style="animation-delay:0.6s">
+        <p class="font-cinzel text-lg md:text-2xl mb-2" style="color:#C0C0C0">La Cultura como Texto Sagrado</p>
+      </div>
+
+      <div class="animate-spectral" style="animation-delay:0.8s">
+        <p class="font-body text-sm md:text-base max-w-2xl mx-auto mb-10" style="color:#808080;line-height:1.8">
+          En un mundo que busca respuestas en las estrellas, los símbolos y los rituales,
+          <span class="semiotic-tip" style="color:#C0C0C0">Mytrak
+            <span class="tip-content">Del griego <em>Mythos</em> (relato sagrado) + <em>Track</em> (huella o sendero). Es la tecnología diseñada para rastrear las huellas de los mitos antiguos en el código de la cultura digital contemporánea. Es el puente que traduce tus incertidumbres en mapas de significado. </span>
+          </span>
+          explora por qué la humanidad contemporánea regresa a lo esotérico para encontrar sentido, bienestar emocional y conexión.
+        </p>
+      </div>
+
+      <div class="animate-spectral flex flex-col sm:flex-row gap-4 justify-center" style="animation-delay:1s">
+        <a href="zodiaco.html" class="btn-mystic">
+          <span>Explorar el Zodíaco</span>
+          <i data-lucide="sparkles" style="width:16px;height:16px"></i>
+        </a>
+        <a href="oraculo_ia.html" class="btn-mystic" style="background:transparent;border:1px solid rgba(106,13,173,0.5)">
+          <span>Consultar el Oráculo</span>
+          <i data-lucide="eye" style="width:16px;height:16px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="relative z-10 py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="font-body text-xs uppercase tracking-[0.25em] mb-4" style="color:#6A0DAD">Mapas de Sentido</p>
+        <h2 class="font-cinzel text-3xl md:text-4xl mb-4" style="color:#E0E0E0">Tres Portales de Exploración</h2>
+        <p class="font-body text-sm max-w-xl mx-auto" style="color:#808080">Cada portal es una entrada a un sistema de significados que la humanidad ha construido durante milenios.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1: Zodiac -->
+        <a href="zodiaco.html" class="glass-card p-8 text-center reveal block" style="text-decoration:none">
+          <img src="img/simbolo.png" alt="Zodíaco" class="w-24 h-24 mx-auto mb-6 rounded-full object-cover animate-float" style="border:1px solid rgba(106,13,173,0.3)">
+          <h3 class="font-cinzel text-xl mb-3" style="color:#E0E0E0">El Círculo de Signos</h3>
+          <p class="font-body text-sm" style="color:#808080;line-height:1.7">12 arquetipos universales que mapean el viaje del alma. No predicen tu futuro: iluminan tu presente.</p>
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs" style="color:#6A0DAD">
+            <span>Explorar</span>
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </div>
+        </a>
+
+        <!-- Card 2: Oracle -->
+        <a href="oraculo_ia.html" class="glass-card p-8 text-center reveal block" style="text-decoration:none;animation-delay:0.15s">
+          <img src="img/oraculo.png" alt="Oráculo" class="w-24 h-24 mx-auto mb-6 rounded-full object-cover animate-float" style="border:1px solid rgba(106,13,173,0.3);animation-delay:1s">
+          <h3 class="font-cinzel text-xl mb-3" style="color:#E0E0E0">El Lector Simbólico</h3>
+          <p class="font-body text-sm" style="color:#808080;line-height:1.7">Un oráculo digital que transforma tus palabras en reflexiones basadas en arquetipos universales.</p>
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs" style="color:#6A0DAD">
+            <span>Consultar</span>
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </div>
+        </a>
+
+        <!-- Card 3: Library -->
+        <a href="biblioteca.html" class="glass-card p-8 text-center reveal block" style="text-decoration:none;animation-delay:0.3s">
+          <img src="img/cartas.png" alt="Biblioteca" class="w-24 h-24 mx-auto mb-6 rounded-full object-cover animate-float" style="border:1px solid rgba(106,13,173,0.3);animation-delay:2s">
+          <h3 class="font-cinzel text-xl mb-3" style="color:#E0E0E0">Mapas de Sentido</h3>
+          <p class="font-body text-sm" style="color:#808080;line-height:1.7">Glosario interactivo de símbolos esotéricos: la semiótica detrás de los rituales que nos conectan.</p>
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs" style="color:#6A0DAD">
+            <span>Descubrir</span>
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="relative z-10 py-20 px-6">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="divider-mystic"></div>
+      <blockquote class="font-cinzel text-xl md:text-2xl my-10" style="color:#C0C0C0;line-height:1.6">
+        "El símbolo es la mejor expresión posible de algo que aún no se comprende del todo."
+      </blockquote>
+      <p class="font-body text-sm" style="color:#808080">— Carl Gustav Jung</p>
+      <div class="divider-mystic"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-mystic relative z-10 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-cinzel text-sm" style="color:#6A0DAD">✦ Mytrak</p>
+        <p class="font-body text-xs mt-1" style="color:#808080">Semiótica esotérica & bienestar emocional</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html" class="nav-link text-xs">Umbral</a>
+        <a href="zodiaco.html" class="nav-link text-xs">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link text-xs">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link text-xs">Biblioteca</a>
+      </div>
+      <p class="font-body text-xs" style="color:#808080">© 2026 Mytrak. Un espacio de introspección digital.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

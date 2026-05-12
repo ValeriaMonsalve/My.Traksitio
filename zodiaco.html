@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mytrak — El Círculo de Signos</title>
+  <meta name="description" content="Explora los 12 signos del zodíaco como arquetipos universales. Descubre el significado simbólico y semiótico de cada signo.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="star-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-cinzel text-lg tracking-wider" style="color:#6A0DAD">
+        <span class="text-glow">✦</span> Mytrak
+      </a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links flex items-center gap-8" id="nav-links">
+        <a href="index.html" class="nav-link">El Umbral</a>
+        <a href="zodiaco.html" class="nav-link active">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link">Biblioteca</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="relative z-10 pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="animate-spectral">
+        <p class="font-body text-xs uppercase tracking-[0.25em] mb-4" style="color:#6A0DAD">
+          <i data-lucide="sparkles" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px"></i>
+          Los 12 Arquetipos
+        </p>
+        <h1 class="font-cinzel text-4xl md:text-6xl mb-4 text-glow" style="color:#E0E0E0">El Círculo de Signos</h1>
+        <p class="font-body text-sm max-w-2xl mx-auto mb-4" style="color:#808080;line-height:1.8">
+          Cada signo es un capítulo en la narrativa del alma colectiva. No son predicciones: son
+          <span class="semiotic-tip" style="color:#C0C0C0">espejos simbólicos
+            <span class="tip-content">En la semiótica de Pierce, un símbolo es un signo cuya relación con su objeto es convencional. Los signos zodiacales funcionan como símbolos culturales que nos permiten narrar nuestra experiencia interior.</span>
+          </span>
+          que reflejan las fuerzas universales que operan en cada ser humano.
+        </p>
+        <p class="font-body text-xs" style="color:#808080">Haz clic en cada carta para revelar su significado profundo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zodiac Grid -->
+  <section class="relative z-10 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div id="zodiac-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contextual Note -->
+  <section class="relative z-10 pb-20 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <div class="glass-card p-8">
+        <div class="flex items-start gap-4">
+          <i data-lucide="info" style="width:20px;height:20px;color:#6A0DAD;flex-shrink:0;margin-top:2px"></i>
+          <div>
+            <h3 class="font-cinzel text-base mb-2" style="color:#E0E0E0">Nota sobre los Arquetipos</h3>
+            <p class="font-body text-sm" style="color:#808080;line-height:1.7">
+              Los arquetipos asociados a cada signo provienen de la psicología analítica de Carl Jung y de la tradición del Tarot de Marsella. No son definiciones fijas: son lentes a través de los cuales explorar facetas de la experiencia humana. Un signo no te define; te invita a reflexionar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-mystic relative z-10 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-cinzel text-sm" style="color:#6A0DAD">✦ Mytrak</p>
+        <p class="font-body text-xs mt-1" style="color:#808080">Semiótica esotérica & bienestar emocional</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html" class="nav-link text-xs">Umbral</a>
+        <a href="zodiaco.html" class="nav-link text-xs">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link text-xs">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link text-xs">Biblioteca</a>
+      </div>
+      <p class="font-body text-xs" style="color:#808080">© 2026 Mytrak</p>
+    </div>
+  </footer>
+
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/zodiaco.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mytrak — Biblioteca de Símbolos</title>
+  <meta name="description" content="Glosario interactivo de símbolos esotéricos. Explora la semiótica detrás de lunas, runas, cristales y rituales ancestrales.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="star-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-cinzel text-lg tracking-wider" style="color:#6A0DAD">
+        <span class="text-glow">✦</span> Mytrak
+      </a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <div class="nav-links flex items-center gap-8" id="nav-links">
+        <a href="index.html" class="nav-link">El Umbral</a>
+        <a href="zodiaco.html" class="nav-link">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link active">Biblioteca</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="relative z-10 pt-32 pb-8 px-6">
+    <div class="max-w-4xl mx-auto text-center animate-spectral">
+      <p class="font-body text-xs uppercase tracking-[0.25em] mb-4" style="color:#6A0DAD">
+        <i data-lucide="book-open" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px"></i>
+        Glosario Esotérico
+      </p>
+      <h1 class="font-cinzel text-4xl md:text-6xl mb-4 text-glow" style="color:#E0E0E0">Mapas de Sentido</h1>
+      <p class="font-body text-sm max-w-2xl mx-auto" style="color:#808080;line-height:1.8">
+        Un atlas de los símbolos que la humanidad ha creado para navegar lo invisible.
+        Cada signo es una
+        <span class="semiotic-tip" style="color:#C0C0C0">tecnología del alma
+          <span class="tip-content">Los rituales y símbolos funcionan como "tecnologías blandas" de regulación emocional. La neurociencia confirma que los actos simbólicos activan circuitos de recompensa y reducen la ansiedad.</span>
+        </span>
+        que conecta lo cotidiano con lo trascendente.
+      </p>
+      <p class="font-body text-xs mt-4" style="color:#808080">
+        <span id="symbol-count" style="color:#6A0DAD;font-weight:600">30</span> símbolos en <span style="color:#6A0DAD">8</span> categorías
+      </p>
+    </div>
+  </section>
+
+  <!-- Hero image -->
+  <section class="relative z-10 pb-8 px-6">
+    <div class="max-w-md mx-auto animate-spectral" style="animation-delay:0.3s">
+      <img src="img/cartas.png" alt="Cartas esotéricas" class="w-full rounded-2xl" style="border:1px solid rgba(106,13,173,0.2)">
+    </div>
+  </section>
+
+  <!-- Search & Filters -->
+  <section class="relative z-10 pb-8 px-6">
+    <div class="max-w-3xl mx-auto animate-spectral" style="animation-delay:0.5s">
+      <!-- Search Bar -->
+      <div class="search-bar mb-6">
+        <i data-lucide="search" style="width:18px;height:18px;color:#808080"></i>
+        <input type="text" id="symbol-search" placeholder="Buscar un símbolo, concepto o ritual..." autocomplete="off">
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-2">
+        <button class="filter-btn active px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="all"
+          style="background:rgba(106,13,173,0.15);border:1px solid rgba(106,13,173,0.3);color:#C0C0C0;cursor:pointer">
+          Todos
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="celestial"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          🌙 Celestial
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="elemento"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          🔥 Elementos
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="herramienta"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          🃏 Herramientas
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="geometria"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          ⛤ Geometría
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="cuerpo"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          👁️ Cuerpo
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="animal"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          🐍 Animal
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="mineral"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          💎 Mineral
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-xs font-body transition-all" data-filter="planta"
+          style="background:rgba(20,15,30,0.6);border:1px solid rgba(192,192,192,0.15);color:#808080;cursor:pointer">
+          🌿 Planta
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Symbols Grid -->
+  <section class="relative z-10 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div id="symbols-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-mystic relative z-10 py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-cinzel text-sm" style="color:#6A0DAD">✦ Mytrak</p>
+        <p class="font-body text-xs mt-1" style="color:#808080">Semiótica esotérica &amp; bienestar emocional</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html" class="nav-link text-xs">Umbral</a>
+        <a href="zodiaco.html" class="nav-link text-xs">Zodiaco</a>
+        <a href="oraculo_ia.html" class="nav-link text-xs">Oráculo</a>
+        <a href="biblioteca.html" class="nav-link text-xs">Biblioteca</a>
+      </div>
+      <p class="font-body text-xs" style="color:#808080">© 2026 Mytrak</p>
+    </div>
+  </footer>
+
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/biblioteca.js"></script>
+  <script>lucide.createIcons();</script>
+
+  <style>
+    .filter-btn.active {
+      background: rgba(106,13,173,0.2) !important;
+      border-color: rgba(106,13,173,0.5) !important;
+      color: #C0C0C0 !important;
+    }
+    .filter-btn:hover {
+      border-color: rgba(106,13,173,0.3) !important;
+      color: #C0C0C0 !important;
+    }
+    details summary {
+      list-style: none;
+    }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary {
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</body>
+</html>
